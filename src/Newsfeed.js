@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Newsfeed.css";
 import LineGraph from "./LineGraph";
-
+import TimeLine from './TimeLine'
 
 function Newsfeed() {
   const [popularTopics, setTopics] = useState([
@@ -33,6 +33,7 @@ function Newsfeed() {
           </div>
           <div className="newsfeed__chart">
             <LineGraph />
+            <TimeLine />
           </div>
         </div>
         <div className="newsfeed__buying__section">
