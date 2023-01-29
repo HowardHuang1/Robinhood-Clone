@@ -3,7 +3,7 @@ import "./Newsfeed.css";
 import LineGraph from "./LineGraph";
 import TimeLine from './TimeLine'
 
-function Newsfeed() {
+function Newsfeed({stocksData, stock}) {
   const [popularTopics, setTopics] = useState([
     "Technology",
     "Top Movies",
@@ -32,7 +32,13 @@ function Newsfeed() {
             <p> $142.90 (-0,12) Today </p>
           </div>
           <div className="newsfeed__chart">
-            <LineGraph />
+            {stock && 
+            Object.keys(stocksData).map(s => (
+              // <div style={{display: stocksData[s].name === stock ? "block": "none"}}>
+<LineGraph visible={stock === stocksData[s].name} stock={stocksData[s].name} stocksData={stocksData} />
+            ))
+            
+            }
             <TimeLine />
           </div>
         </div>

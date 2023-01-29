@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import { Line } from "react-chartjs-2";
 
 const options = {
@@ -49,27 +49,42 @@ const options = {
   },
 };
 
-function LineGraph({ casesType }) {
-  const [data, setData] = useState({});
-
+function LineGraph({ visible, stock, casesType, stocksData }) {
+  const [data, setData] = useState([]);
+  const [i, setI] = useState(0);
+  const ref = useRef()
   useEffect(() => {
-    
-    let data = [];
+    console.log(data)
+    let d = data
     let value = 50;
-    for(var i = 0; i < 366; i++){
+    // for(var j = 0; j < 2; j++){
       let date = new Date();
       date.setHours(0,0,0,0);
       date.setDate(i);
-      value += Math.round((Math.random() < 0.5 ? 1 : 0) * Math.random() * 10);
-      data.push({x: date, y: value});
-    }   
-    setData(data)
-  }, []);
+      setI(i+1)
+      value = stocksData[stock].price
+      d.push({x: date, y: value});
+    // }   
+    console.log("line graph", d)
+    setData(d)
+    // if (ref) {
+    //     console.log(ref)
+    // }
+    if (ref.current && ref.current.chartInstance)
+        ref.current.chartInstance.update()
+  }, [ref, data, stock, stocksData]);
+
+//   const graphData = useMemo(() => {
+//     return 
+//   }, [data])
+
+
 
   return (
     <div>
-      {data?.length > 0 && (
+      {visible && data?.length > 0 && (
         <Line
+        ref={ref}
           data={{
             datasets: [
               {
