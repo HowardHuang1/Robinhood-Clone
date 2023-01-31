@@ -1,73 +1,46 @@
-# Getting Started with Create React App
+# Robinhood Clone
+Robinhood Clone is a duplicate of the stock trading app Robinhood. It supports functionality for 5 stocks called at 1 second intervals from the SIMDAQ API and displays the historical pricing of each stock within a stock chart. Ticker symbols and their associated price are displayed in the stocks list panel on the right.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![UI](https://github.com/HowardHuang1/Robinhood-Clone/blob/main/Robinhood%20UI.png)
 
-## Available Scripts
+The app consists of a React frontend, a Node server, and a SIMDAQ API that provides the ticker and price fluctuation information.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## Diagram
+
 ![Diagram](https://github.com/HowardHuang1/Robinhood-Clone/blob/main/Robinhood%20App%20Diagram.png)
+
+# How To Use
+
+To clone and run this application, you'll need [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/HowardHuang1/Robinhood-Clone.git
+
+# Go into the repository
+$ cd Robinhood-Clone
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
+```
+
+Packages and presets will be loaded automatically from `package.json`. 
+
+Start the SimDAQ API Server by running 
+```bash
+npm run api
+```
+
+Start the Node Server by running
+```bash
+npm run server
+```
+
+This will begin generating stock prices with a price fluctuation range of 5% from the SimDAQ API server. The frontend will call the Node Server every second with each of the stock ticker symbols. The Node Server then submits requests to the SimDAQ API server which returns the current price to be displayed in the UI.
+
+## UI
+![UI2](https://github.com/HowardHuang1/Robinhood-Clone/blob/main/Robinhood%20UI%202.png)
