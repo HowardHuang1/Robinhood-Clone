@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import StockChart from './robinhood.svg'
 
 function StatsRow(props) {
-  //   console.log(props, "what is in props here?");
-// (currentPrice - openPrice)/openPrice
 const [percentage, setPercentage] = useState(0)
 const [price, setPrice] = useState(props.price)
 useEffect(() => {
@@ -20,9 +18,6 @@ console.log(props)
     <div className="row" onClick={getModal}>
       <div className="row__intro">
         <h1>{props?.name}</h1>
-        {/* <p>{props.volume && 
-          (props.volume + " shares")
-        }</p> */}
       </div>
       <div className="row__chart">
         <img src={StockChart} height={16}/>

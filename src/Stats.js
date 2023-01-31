@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Stats.css";
-// import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import StatsRow from "./StatsRow";
 import axios from "axios";
 
-// const BASE_URL = "https://finnhub.io/api/v1/quote?symbol=";
 const BASE_URL = "http://localhost:8000/data/";
-// const KEY_URL = `&token=${key}`;
 const KEY_URL = ``;
 
 
@@ -15,28 +12,6 @@ const KEY_URL = ``;
 function Stats({setStockData, setStock}) {
   const [stocksData, setStocksData] = useState({});
   const [myStocks, setMyStocks] = useState([]);
-
-  // const getMyStocks = () => {
-  //   db
-  //   .collection('myStocks')
-  //   .onSnapshot(snapshot => {
-  //       let promises = [];
-  //       let tempData = []
-  //       snapshot.docs.map((doc) => {
-  //         promises.push(getStocksData(doc.data().ticker)
-  //         .then(res => {
-  //           tempData.push({
-  //             id: doc.id,
-  //             data: doc.data(),
-  //             info: res.data
-  //           })
-  //         })
-  //       )})
-  //       Promise.all(promises).then(()=>{
-  //         setMyStocks(tempData);
-  //       })
-  //   })
-  // }
 
   const getStocksData = (stock) => {
     return axios
@@ -50,8 +25,6 @@ function Stats({setStockData, setStock}) {
 
 
   useEffect(() => {
-
-    // getMyStocks();
     const interval = setInterval(() => {
 
     const testData = {}; 
@@ -83,21 +56,7 @@ function Stats({setStockData, setStock}) {
       <div className="stats__container">
         <div className="stats__header">
           <p> Stocks</p>
-          {/* <MoreHorizIcon /> */}
         </div>
-        {/* <div className="stats__content">
-          <div className="stats__rows">
-            {stockList.map((stock) => (
-              <StatsRow
-                key={stock}
-                name={stock}
-                // openPrice={stock.info.o}
-                // volume={stock.data.shares}
-                price={stock.info.c}
-              />
-            ))}
-          </div>
-        </div> */}
         <div className="stats__header stats-lists">
           <p>Lists</p>
         </div>
@@ -107,7 +66,6 @@ function Stats({setStockData, setStock}) {
               <StatsRow
                 key={stocksData[stock].name}
                 name={stocksData[stock].name}
-                // openPrice={stock.o}
                 price={stocksData[stock].price}
                 setStock={setStock}
               />

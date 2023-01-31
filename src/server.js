@@ -4,32 +4,7 @@ const app = express();
 const port = 8000;
 const axios = require('axios')
 
-function algorithm() {
-  return {
-    AAPL: parseInt(Math.random() * 100000) / 100,
-    TSLA: parseInt(Math.random() * 100000) / 100,
-  };
-}
-
-function algorithm1(stock) {
-    return {
-      AAPL: parseInt(Math.random() * 100000) / 100,
-      MSFT: parseInt(Math.random() * 100000) / 100,
-      FB: parseInt(Math.random() * 100000) / 100,
-      TSLA: parseInt(Math.random() * 100000) / 100,
-      UBER: parseInt(Math.random() * 100000) / 100,
-    }[stock];
-  }
-
 app.use(cors());
-
-// app.get("/", (req, res) => {
-//     res.sendFile('./test.js', {root: __dirname })
-// });
-
-// app.get("/data", async (req, res) => {
-//     res.send(algorithm());
-// });
 
 app.get("/data/:stock", async (req, res) => {
     const stock = req.params.stock.toUpperCase();
@@ -41,5 +16,5 @@ app.get("/data/:stock", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Robinhood app listening on port ${port}`);
 });

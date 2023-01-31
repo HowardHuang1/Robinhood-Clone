@@ -26,25 +26,15 @@ function getPriceFluctuation(stock){
             initialPrice: 30
         }
     ]
-    // const stocksList = ["AAPL", "MSFT", "TSLA", "FB", "UBER"];
-    // const initialPrice = [140, 250, 160, 150, 30];
     const currPrice = stockData.map(s => s.initialPrice);
     for(let i = 0; i < stockData.length; i++){
         currPrice[i] = (Math.random() - 0.5) * (0.05) * currPrice[i] + stockData[i].initialPrice;
-        if (stock && stockData[i].name === stock) return currPrice[i]
+        if (stock && stockData[i].name === stock) return currPrice[i];
     }
     return(currPrice);
 }
 
 app.use(cors());
-
-// app.get("/", (req, res) => {
-//     res.sendFile('./test.js', {root: __dirname })
-// });
-
-// app.get("/data", async (req, res) => {
-//     res.send(algorithm());
-// });
 
 app.get("/data/:stock", async (req, res) => {
     const stock = req.params.stock.toUpperCase();
@@ -54,5 +44,5 @@ app.get("/data/:stock", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Robinhood app listening on port ${port}`);
 });
