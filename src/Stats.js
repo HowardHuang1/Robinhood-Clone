@@ -6,9 +6,6 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8000/data/";
 const KEY_URL = ``;
 
-
-
-
 function Stats({setStockData, setStock}) {
   const [stocksData, setStocksData] = useState({});
   const [myStocks, setMyStocks] = useState([]);

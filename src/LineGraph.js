@@ -57,28 +57,17 @@ function LineGraph({ visible, stock, casesType, stocksData }) {
     console.log(data)
     let d = data
     let value = 50;
-    // for(var j = 0; j < 2; j++){
-      let date = new Date();
-      date.setHours(0,0,0,0);
-      date.setDate(i);
-      setI(i+1)
-      value = stocksData[stock].price
-      d.push({x: date, y: value});
-    // }   
+    let date = new Date();
+    date.setHours(0,0,0,0);
+    date.setDate(i);
+    setI(i+1)
+    value = stocksData[stock].price
+    d.push({x: date, y: value});
     console.log("line graph", d)
     setData(d)
-    // if (ref) {
-    //     console.log(ref)
-    // }
     if (ref.current && ref.current.chartInstance)
         ref.current.chartInstance.update()
   }, [ref, data, stock, stocksData]);
-
-//   const graphData = useMemo(() => {
-//     return 
-//   }, [data])
-
-
 
   return (
     <div>

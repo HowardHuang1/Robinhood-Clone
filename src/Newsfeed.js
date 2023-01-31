@@ -32,12 +32,9 @@ function Newsfeed({stocksData, stock}) {
             <p> $142.90 (-0,12) Today </p>
           </div>
           <div className="newsfeed__chart">
-            {stock && 
-            Object.keys(stocksData).map(s => (
-              // <div style={{display: stocksData[s].name === stock ? "block": "none"}}>
-<LineGraph visible={stock === stocksData[s].name} stock={stocksData[s].name} stocksData={stocksData} />
+            {stock && Object.keys(stocksData).map(s => (
+              <LineGraph visible={stock === stocksData[s].name} stock={stocksData[s].name} stocksData={stocksData} />
             ))
-            
             }
             <TimeLine />
           </div>
@@ -58,16 +55,6 @@ function Newsfeed({stocksData, stock}) {
             <p>Show More</p>
           </div>
           <div className="newsfeed_popularlists_badges">
-            {/* {popularTopics.map((topic) => (
-              <Chip 
-                className="topic__badge"
-                variant="outlined"
-                label={topic}
-                // avatar={<Avatar
-                //   src={`https://avatars.dicebear.com/api/human/${topic}.svg`}
-                // />} 
-              />
-            ))} */}
           </div>
         </div>
       </div>

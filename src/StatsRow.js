@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import StockChart from './robinhood.svg'
+import StockChart from './stock.svg'
 
 function StatsRow(props) {
 const [percentage, setPercentage] = useState(0)
