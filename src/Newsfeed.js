@@ -28,8 +28,8 @@ function Newsfeed({stocksData, stock}) {
       <div className="newsfeed__container">
         <div className="newsfeed__chart__section">
           <div className="newsfeed_price_asset">
-            <h1> $114,656,84</h1>
-            <p> $142.90 (-0,12) Today </p>
+            <h1> $394,562.71</h1>
+            <p> -$128.34 (-0.03%) Today </p>
           </div>
           <div className="newsfeed__chart">
             {stock && Object.keys(stocksData).map(s => (
@@ -41,7 +41,7 @@ function Newsfeed({stocksData, stock}) {
         </div>
         <div className="newsfeed__buying__section">
           <h2> Buying Power</h2>
-          <h2> $4.11</h2>
+          <h2> $78.32</h2>
         </div>
         <div className="newsfeed__market__section">
           <div className="newsfeed__market__box">

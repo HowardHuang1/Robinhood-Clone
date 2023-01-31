@@ -8,7 +8,6 @@ const KEY_URL = ``;
 
 function Stats({setStockData, setStock}) {
   const [stocksData, setStocksData] = useState({});
-  const [myStocks, setMyStocks] = useState([]);
 
   const getStocksData = (stock) => {
     return axios
